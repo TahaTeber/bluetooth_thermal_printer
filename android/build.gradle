@@ -1,51 +1,51 @@
 group 'com.peoplewareinnovations.bluetooth_thermal_printer'
 version '1.0-SNAPSHOT'
 
+
+
 buildscript {
-    ext.kotlin_version = '1.9'
     repositories {
         google()
         mavenCentral()
     }
 
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.android.tools.build:gradle:8.3.2'
+   dependencies {
+        classpath("com.android.tools.build:gradle:8.3.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
     }
+
 }
 
-rootProject.allprojects {
-    repositories {
-        google()
-        mavenCentral()  // Replace jcenter() with mavenCentral()
-    }
-}
-
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
+apply plugin: "org.jetbrains.kotlin.android"
 
 android {
-    namespace 'com.peoplewareinnovations.bluetooth_thermal_printer'
-    compileSdk 34  // Updated compileSdkVersion
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
+    namespace 'com.peoplewareinnovations.bluetooth_thermal_printer' // Required for library modules
+    compileSdk 34
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-
-    defaultConfig {
-        minSdk 19
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+     kotlinOptions {
+        jvmTarget = "1.8"
+        // allWarningsAsErrors = true // TODO(bartekpacia): Re-enable
     }
 
-    lintOptions {
-        disable 'InvalidPackage'
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
+    }
+
+    defaultConfig {
+        minSdk = 21
+        targetSdk = 35
     }
 
 }
 
 
+dependencies {
+    implementation("androidx.core:core-ktx:1.13.1")
+}
