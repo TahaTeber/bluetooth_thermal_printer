@@ -32,6 +32,7 @@ android {
     }
 
     defaultConfig {
+        namespace 'com.peoplewareinnovations.bluetooth_thermal_printer'
         minSdkVersion 16
     }
 
