@@ -2,7 +2,7 @@ group 'com.peoplewareinnovations.bluetooth_thermal_printer'
 version '1.0-SNAPSHOT'
 
 buildscript {
-  //  ext.kotlin_version = '1.9.0'  // Updated Kotlin version
+    ext.kotlin_version = '1.9.0'  // Updated Kotlin version
     repositories {
         google()
         mavenCentral()  // Replace jcenter() (deprecated) with mavenCentral()
@@ -31,8 +31,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     defaultConfig {
@@ -46,6 +46,6 @@ android {
 }
 
 
-dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
-}
+// dependencies {
+//     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
+// }
